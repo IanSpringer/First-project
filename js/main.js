@@ -1,24 +1,44 @@
-console.log('hello');
+var game = false;
 
+var rulesFunction = function(){
+  console.log("I was clicked");
+}
+
+var playFunction = function(){
+  alert("You are about to go to war!")
+  game = true;;
+}
 var Card = function(rank, suit, value) {
   this.rank = rank;
   this.suit = suit;
   this.value = value;
 };
-
-var suit = ["Heart", "Spade", "Diamond","Club"];
-var rank = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
-var value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-var cards = [];
-var deck = function() {
-  for (var i = 0; i < rank.length; i++){
-    for (var j = 0; j < suit.length; j++){
-       cards.push((rank[i] + ' of ' + suit[j]));
-    }
-  }
-  return cards;
+var cardDeck = {
+  suit: ["Heart", "Spade", "Diamond","Club"],
+  rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
 };
 
+var deck = [];
+var makeDeck = function() {
+  for (var i = 0; i < cardDeck.rank.length; i++){
+    for (var j = 0; j < cardDeck.suit.length; j++){
+       deck.push((cardDeck.rank[i] + ' of ' + cardDeck.suit[j]));
+    }
+  }
+
+};
+
+makeDeck();
+
+var value;
+var setCardValue = function() {
+
+
+   {
+
+  }
+
+  };
 //Deck.prototype.count = function(){
   //return this.cards.length
 //}
