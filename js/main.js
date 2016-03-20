@@ -30,15 +30,40 @@ var makeDeck = function() {
 
 makeDeck();
 
-var value;
-var setCardValue = function() {
+var shuffleDeck = function(array) {
+    var j, x, i;
+    for (i = array.length; i; i -= 1) {
+        j = Math.floor(Math.random() * i);
+        x = array[i - 1];
+        array[i - 1] = array[j];
+        array[j] = x;
+    }
+};
+shuffleDeck(deck);
 
+var playerHand = [];
+var computerHand = [];
 
-   {
-
+var dealPlayer = function(){
+  for(var i = 0; i< 26; i ++){
+    playerHand.push(deck[i]);
   }
-
   };
+
+var dealComputer = function(){
+  for (var i = 27; i < 52; i++) {
+    computerHand.push(deck[i]);
+  }
+};
+
+dealPlayer();
+dealComputer();
+
+
+
+
+
+
 //Deck.prototype.count = function(){
   //return this.cards.length
 //}
