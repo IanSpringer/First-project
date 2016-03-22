@@ -72,7 +72,8 @@ h1 {
   background-color: black;
   color: white;
   text-align: center;
-  margin-left: 150px;
+  margin-top: 20px;
+  margin-left: 170px;
   border: 1px solid white;
   border-radius: 25px;
   display: inline-block;
@@ -91,8 +92,14 @@ h1 {
   display: inline-block;
   font-family: Papyrus, fantasy;
   font-size: 27px;
+}.pTag {
+   font-family: Papyrus, fantasy;
+  font-size: 23px;
+  padding-left: 15px;
+  padding-right: 10px;
+  color: white;
+  text-align: center;
 }
-
 
 
 .h2 {
@@ -124,9 +131,13 @@ h1 {
   color: white;
 
 }
+
+.cards {
+
+}
 .reset {
-  margin-left: 512px;
-  margin-top: 10px;
+  margin-left: 500px;
+  margin-top: 150px;
 }
 .resetButton {
   width: 120px;
@@ -135,11 +146,32 @@ h1 {
   color: white;
   text-align: center;
   margin-left: 150px;
+  margin-bottom: 200px;
   border: 1px solid white;
   border-radius: 25px;
   display: inline-block;
   font-family: Papyrus, fantasy;
   font-size: 35px;
+
+}
+.card1 {
+  width: 150px;
+  height: 250px;
+  background: black;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: 400px;
+  display: inline-block;
+}
+
+.card2 {
+  width: 150px;
+  height: 250px;
+  background: black;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: 310px;
+  display: inline-block;
 
 }
 }
