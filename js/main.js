@@ -6,52 +6,48 @@ var playFunction = function(){
   $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
   $('#reset').append('<div class="resetButton" onclick="reset()">Reset</div>');
   $('#header2').append('<div class="card1" id="card1"></div>');
-  $('#header2').append('<div class="card2" id="card2"></div>')
-  $('#computerScore').html("Computer Score:");
-  $('#playerScore').html("Player Score:");
+  $('#header2').append('<div class="card2" id="card2"></div>');
+  $('#computerScore').html("Computer: 0");
+  $('#playerScore').html("Player: 0" );
 };
 
-
+var goBack = function() {
+  window.history.back();
+}
 
 var rulesFunction = function(){
   $('#rules').remove();
   $('#play').remove();
-  $('#war-header').append('<p>');
+  $('#rulesDiv').append('<p>');
+  //$('#war-header').append('<p>');
   $('p').attr('id', 'pTag');
   $('#pTag').text('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their value. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. Click draw again and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
-  $('#pTag').append('<div class="playFromRules" id="playFromRules" onclick="playFromRules()">Play</div>')
+  $('#pTag').append('<div class="goBack" id="goBack" onclick="goBack()">Back</div>')
 };
 
-var playFromRules = function() {
-  $('.war').remove();
-  $('p').remove();
-  $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
-  $('#reset').append('<div class="resetButton" onclick="reset()">Reset</div>');
-  $('#header2').append('<div class="card1" id="card1"></div>');
-  $('#header2').append('<div class="card2" id="card2"></div>');
-  $('#computerScore').html("Computer Score:");
-  $('#playerScore').html("Player Score:");
-};
 
 
 
 
 // Card Constructor
-var Card = function(suit, rank, value) {
+var Card = function(suit, rank, value, symbol) {
     this.suit = suit;
     this.rank = rank;
     this.value = value;
+    this.symbol = symbol;
 };
 
-Card.prototype.toString = function(){
+//Card.prototype.toString = function(){
   // "Ace of Spades"
-  return this.rank + " of " + this.suit;
-}
+  //return this.rank + " of " + this.suit;
+//}
+
 // card ingredients
 var cardDeck = {
   suit: ['Hearts', 'Spades', 'Diamonds', 'Clubs'],
   rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
-  value: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+  value: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+  symbol: ['♥', '♠', '♦', '♣']
 };
 
 var playerCardValue;
@@ -67,7 +63,7 @@ var makeDeck = function() {
       // var card = new Card(cardDeck.suit[0], cardDeck.rank[0], cardDeck.value[0]);
       // var card = new Card('Heart', '2', 2);
       // var card = {suit: 'Heart', rank: '2', value: 2};
-      var card = new Card(cardDeck.suit[j], cardDeck.rank[i], cardDeck.value[i]);
+      var card = new Card(cardDeck.suit[j], cardDeck.rank[i], cardDeck.value[i], cardDeck.symbol[j]);
       deck.push(card);
     }
   }
@@ -123,10 +119,17 @@ var computerWinsRound = function() {
 }
 
 var cardSymbol = function() {
-  $('#card1').html(computerCard.rank + " of " + computerCard.suit);
-  $('#card2').html(playerCard.rank + " of " + computerCard.suit);
+  $('#card1').html(computerCard.rank + "" + computerCard.symbol);
+  $('#card2').html(playerCard.rank + "" + playerCard.symbol);
 }
-
+var war = function(){
+  $('#warCards').append('<div class="card3" id="card3"></div>');
+  $('#warCards').append('<div class="card4" id="card4"></div>');
+  $('#warCards2').append('<div class="card5" id="card5"></div>');
+  $('#warCards2').append('<div class="card6" id="card6"></div>');
+}
+var playerScore = 0;
+var computerScore = 0
 var draw = function() {
   playerCard = playerHand[0];
   computerCard = computerHand[0];
@@ -137,8 +140,11 @@ var draw = function() {
   if (playerCard.value > computerCard.value){
     $('#computerWinsRound').remove();
     $('#playerWinsRound').remove();
-    console.log("Player Wins the round")
      playerWinsRound();
+     playerScore = playerScore + 2;
+     $('#playerScore').html("Player: " + playerScore);
+
+
     //console.log("Player wins the round")
     // player gets 2 points - changes state of game
     // computer gets nothing
@@ -147,54 +153,33 @@ var draw = function() {
     $('#computerWinsRound').remove();
     $('#playerWinsRound').remove();
     computerWinsRound();
-    console.log("Computer wins the round");
-
-  } else {
-
+    computerScore = computerScore + 2;
+    $('#computerScore').html("Computer: " + computerScore)
+  //} else if (computerCard.value === playerCard.value) {
+    //$('#computerWinsRound').remove();
+    //$('#playerWinsRound').remove();
+    //war();
+}
   }
 
-  console.log("You drew a " + playerCard.toString() + ", " + "computer drew a " + computerCard.toString());
-
-  return playerHand;
-  return computerHand;
+  var checkWinner = function() {
+    if(playerHand.length === 0) {
+      if (playerScore > computerScore) {
+        alert("You are a true warrior!");
+      } else if (playerScore < computerScore) {
+        alert("You have been defeated!");
+      }
+    }
 };
+ playerScore;
+ computerScore;
 
 
+ // playerHand;
+  //computerHand;
 
 
-
-
-
-
-
-//Deck.prototype.count = function(){
-  //return this.cards.length
-//}
-
-//Deck.prototype.draw = function(){
-  //return this.cards.pop();
-//}
-
-//var deck = new Deck();
-//deck.cards  //an array of Card objects
-//deck.count()// should give us 52
-//deck.isEmpty() {
-  //return this.cards.length === 0 {
-
-  //}
-//};
-
-
-
-//var Car = function(year, make, model, condition) {
-  //this.year = year;
-  //this.make = make;
-  //this.model = model;
-  //this.condition = condition;
-//}
-
-
-
+checkWinner();
 
 
 

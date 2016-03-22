@@ -4,7 +4,7 @@ body {
 
 
 .war-header {
-  width: 500px;
+  width: 800px;
   margin: auto;
 
 }
@@ -87,7 +87,7 @@ body {
   color: white;
   text-align: center;
   margin-top: 20px;
-  margin-left: 170px;
+  margin-left: 325px;
   border: 1px solid white;
   border-radius: 25px;
   display: inline-block;
@@ -96,7 +96,7 @@ body {
 
 }
 
-.playFromRules {
+.goBack {
   width: 120px;
   height: 50px;
   background-color: black;
@@ -112,13 +112,11 @@ body {
 
 }
 
-.pTag {
+#pTag {
   font-family: Papyrus, fantasy;
   font-size: 23px;
-  padding-left: 15px;
-  padding-right: 10px;
   color: white;
-  text-align: center;
+  margin: 20px;
 }
 
 
@@ -134,14 +132,14 @@ body {
   color: #bee;
   display: inline-block;
   float: right;
-  margin-right: 500px;
+  margin-right: 545px;
 
 }
 
 .computerScore {
   font-family: Papyrus, fantasy;
   font-size: 20px;
-  margin-left: 440px;
+  margin-left: 455px;
   color: #bee;
   display: inline-block;
 
@@ -152,8 +150,8 @@ body {
 
 }
 .reset {
-  margin-left: 500px;
-  margin-top: 150px;
+  float: right;
+  margin-right: 50px;
 }
 .resetButton {
   width: 120px;
@@ -173,6 +171,7 @@ body {
 .card1 {
   width: 150px;
   height: 250px;
+  font-size: 40px;
   color: white;
   text-align: center;
   background: black;
@@ -184,6 +183,7 @@ body {
 
 .card2 {
   width: 150px;
+  font-size: 40px;
   height: 250px;
   color: white;
   text-align: center;
@@ -192,6 +192,70 @@ body {
   border-radius: 15px;
   margin-left: 160px;
   display: inline-block;
+
+}
+
+
+
+.card3 {
+  width: 150px;
+  font-size: 40px;
+  height: 250px;
+  color: white;
+  text-align: center;
+  background: black;
+  border: 1px solid white;
+  margin-right: 490px;
+  margin-top: 5px;
+  border-radius: 15px;
+  float: right;
+  display: inline-block;
+
+
+}
+.card4 {
+  width: 150px;
+  font-size: 40px;
+  height: 250px;
+  color: white;
+  text-align: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 15px;
+  float: left;
+  margin-left: 470px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.card5 {
+  width: 150px;
+  font-size: 40px;
+  height: 250px;
+  color: white;
+  text-align: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 15px;
+  float: left;
+  margin-left: 280px;
+  margin-top: 5px;
+  display: inline-block;
+
+}
+.card6 {
+  width: 150px;
+  font-size: 40px;
+  height: 250px;
+  color: white;
+  text-align: center;
+  background: black;
+  border: 1px solid white;
+  border-radius: 15px;
+  float: left;
+  margin-left: 0;
+  margin-top: 5px;
+  position: relative;
 
 }
 }
