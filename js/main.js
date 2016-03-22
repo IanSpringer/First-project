@@ -3,15 +3,20 @@ var game = false;
 var rulesFunction = function(){
   $('#rules').remove();
   $('#play').remove();
-  $('#clickers').append('<div class="readRules"><h2>War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, or half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their value. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that draw and collects the two cards to be counted later. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. Click draw again and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!</h2></div>')
+  var $hTag = ('<h2 class="h2" id="h2">') ;
+  $hTag.html('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their value. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that draw and collects the two cards to be counted later. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. Click draw again and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
+  $('#header2').append($hTag);
 }
 
 var playFunction = function(){
   $('#rules').remove();
   $('#play').remove();
-  $('#clickers').append('<div class="draw" onclick="draw()">Draw</div>')
+  $('#clickers').append('<div class="draw" onclick="draw()">Draw</div>');
+  $('#reset').append('<div class="resetButton" onclick="reset()">Reset</div>')
+  $('#computerScore').html("Computer Score:");
+  $('#playerScore').html("Player Score:");
   game = true;
-}
+};
 var Card = function(rank, suit, value) {
   this.rank = rank;
   this.suit = suit;
@@ -20,8 +25,13 @@ var Card = function(rank, suit, value) {
 var cardDeck = {
   suit: ['Hearts', 'Spades', 'Diamonds', 'Clubs'],
   rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
-  value: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
 };
+
+var playerCardValue;
+var computerCardValue;
+
+
 
 var deck = [];
 var makeDeck = function() {
@@ -76,21 +86,16 @@ var draw = function() {
   playerHand.shift();
   computerHand.shift();
   console.log("You drew a " + playerDraw + ", " + "computer drew a " + computerDraw);
+
   return playerHand;
   return computerHand;
 };
 
 var t;
 
-var compareDraw = function(player, computer){
-  cardDeck.rank[t] === cardDeck.value[t];
-  if(player > computer) {
-    console.log("Player wins the draw");
-  } else if (computer > player) {
-    console.log("Computer wins the draw");
-  }
-};
-compareDraw
+var compareDraw = function() {
+
+}
 
 
 
