@@ -23,8 +23,6 @@ var rulesFunction = function(){
 };
 
 var playFromRules = function() {
-  $('#rules').remove();
-  $('#play').remove();
   $('.war').remove();
   $('p').remove();
   $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
@@ -33,25 +31,27 @@ var playFromRules = function() {
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer Score:");
   $('#playerScore').html("Player Score:");
-
 };
 
 
 
 
+// Card Constructor
+var Card = function(suit, rank, value) {
+    this.suit = suit;
+    this.rank = rank;
+    this.value = value;
+};
 
-//var Card = function(rank, suit, value) {
-  //var cards = {};
-    //this.rank;
-    //this.suit = suit;
-    //this.value = value;
-//};
-
+Card.prototype.toString = function(){
+  // "Ace of Spades"
+  return this.rank + " of " + this.suit;
+}
+// card ingredients
 var cardDeck = {
   suit: ['Hearts', 'Spades', 'Diamonds', 'Clubs'],
   rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
-
-
+  value: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 };
 
 var playerCardValue;
@@ -63,11 +63,17 @@ var deck = [];
 var makeDeck = function() {
   for (var i = 0; i < cardDeck.rank.length; i++){
     for (var j = 0; j < cardDeck.suit.length; j++){
-       deck.push((cardDeck.rank[i] + ' of ' + cardDeck.suit[j]));
+      // var cardString = (cardDeck.rank[i] + ' of ' + cardDeck.suit[j])
+      // var card = new Card(cardDeck.suit[0], cardDeck.rank[0], cardDeck.value[0]);
+      // var card = new Card('Heart', '2', 2);
+      // var card = {suit: 'Heart', rank: '2', value: 2};
+      var card = new Card(cardDeck.suit[j], cardDeck.rank[i], cardDeck.value[i]);
+      deck.push(card);
     }
   }
 
 };
+
 
 makeDeck();
 
@@ -102,27 +108,58 @@ dealComputer();
 
 
 
-var playerDraw;
-var computerDraw;
+var playerCard;
+var computerCard;
 
+var playerWinsRound = function() {
+  $('<p class="playerWinsRound" id="playerWinsRound">').appendTo($('.war-header'));
+  $('#playerWinsRound').html("Player wins the round");
+};
+
+var computerWinsRound = function() {
+  $('<p class="computerWinsRound" id="computerWinsRound">').appendTo($('.war-header'));
+  $('#computerWinsRound').html("Computer wins the round");
+
+}
+
+var cardSymbol = function() {
+  $('#card1').html(computerCard.rank + " of " + computerCard.suit);
+  $('#card2').html(playerCard.rank + " of " + computerCard.suit);
+}
 
 var draw = function() {
-  playerDraw = playerHand[0];
-  computerDraw = computerHand[0];
+  playerCard = playerHand[0];
+  computerCard = computerHand[0];
   playerHand.shift();
   computerHand.shift();
+  cardSymbol();
   // compare cards
-  console.log("You drew a " + playerDraw + ", " + "computer drew a " + computerDraw);
+  if (playerCard.value > computerCard.value){
+    $('#computerWinsRound').remove();
+    $('#playerWinsRound').remove();
+    console.log("Player Wins the round")
+     playerWinsRound();
+    //console.log("Player wins the round")
+    // player gets 2 points - changes state of game
+    // computer gets nothing
+    // show player wins the round - visually shows state
+  }else if (computerCard.value > playerCard.value){
+    $('#computerWinsRound').remove();
+    $('#playerWinsRound').remove();
+    computerWinsRound();
+    console.log("Computer wins the round");
+
+  } else {
+
+  }
+
+  console.log("You drew a " + playerCard.toString() + ", " + "computer drew a " + computerCard.toString());
 
   return playerHand;
   return computerHand;
 };
 
-var t;
 
-var compareDraw = function() {
-
-}
 
 
 
