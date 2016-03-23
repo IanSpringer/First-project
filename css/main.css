@@ -72,8 +72,14 @@ h3 {
   border: 1px solid white;
   border-radius: 25px;
   display: inline-block;
+  cursor: pointer;
 }
 
+.rules:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
 .play {
   width: 120px;
   height: 50px;
@@ -84,6 +90,13 @@ h3 {
   border: 1px solid white;
   border-radius: 25px;
   display: inline-block;
+  cursor: pointer;
+}
+
+.play:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .draw {
@@ -99,7 +112,14 @@ h3 {
   display: inline-block;
   font-family: Papyrus, fantasy;
   font-size: 35px;
+  cursor: pointer;
 
+}
+
+.draw:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .goBack {
@@ -115,7 +135,14 @@ h3 {
   display: inline-block;
   font-family: Papyrus, fantasy;
   font-size: 35px;
+  cursor: pointer;
 
+}
+
+.goBack:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
 }
 
 #pTag {
@@ -170,9 +197,18 @@ h3 {
   display: inline-block;
   font-family: Papyrus, fantasy;
   font-size: 35px;
-
-
+  cursor: pointer;
 }
+
+.resetButton:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
+
+
+
+
 .card1 {
   width: 150px;
   height: 250px;
@@ -257,25 +293,14 @@ h3 {
   text-align: center;
   background: black;
   border: 1px solid white;
+  margin-top: 5px;
   border-radius: 15px;
   float:right;
   margin-right: 34.5%;
 
 }
 
-.warButton {
-  width: 120px;
-  height: 50px;
-  background-color: red;
-  color: black;
-  text-align: center;
-  margin-top: 20px;
-  border: 1px solid white;
-  border-radius: 25px;
-  float: right;
-  font-family: Papyrus, fantasy;
-  font-size: 35px;
-}
+
 
 
 

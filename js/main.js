@@ -1,4 +1,5 @@
 
+//Sets game into motion
 var playFunction = function(){
   $('#rules').remove();
   $('#play').remove();
@@ -11,25 +12,22 @@ var playFunction = function(){
   $('#playerScore').html("Player: 0" );
 };
 
+//Go back button inside of rules
 var goBack = function() {
-  console.log('hello');
   $('#pTag').remove();
   $('#clickers').append('<h1 class="rules" id="rules" >Rules</h1><h1 class="play" id="play" onclick="playFunction()">Play</h1>');
-
-  //window.history.back();
 };
 
+//Rules button
 $('#rules').on('click', function(){
   $('#rules').remove();
   $('#play').remove();
   $('#rulesDiv').append('<p>');
   //$('#war-header').append('<p>');
   $('#rulesDiv > p').attr('id', 'pTag');
-  $('#pTag').text('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their value. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. Click draw again and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
+  $('#pTag').text('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their values. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. When the prompt asks you if you are ready to go to war, click OK and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
   $('#pTag').append('<div class="goBack" id="goBack" onclick="goBack()">Back</div>');
 });
-
-
 
 
 
@@ -41,10 +39,6 @@ var Card = function(suit, rank, value, symbol) {
     this.symbol = symbol;
 };
 
-//Card.prototype.toString = function(){
-  // "Ace of Spades"
-  //return this.rank + " of " + this.suit;
-//}
 
 // card ingredients
 var cardDeck = {
@@ -54,11 +48,7 @@ var cardDeck = {
   symbol: ['♥', '♠', '♦', '♣']
 };
 
-var playerCardValue;
-var computerCardValue;
-
-
-
+//Creates a fresh deck in order
 var deck = [];
 var makeDeck = function() {
   for (var i = 0; i < cardDeck.rank.length; i++){
@@ -73,10 +63,11 @@ var makeDeck = function() {
   }
 
 };
-var war = false;
+
 
 makeDeck();
 
+//Shuffles deck
 var shuffleDeck = function(array) {
     var j, x, i;
     for (i = array.length; i; i -= 1) {
@@ -91,6 +82,7 @@ shuffleDeck(deck);
 var playerHand = [];
 var computerHand = [];
 
+//Pushes cards into player and computer arrays
 var dealPlayer = function(){
     for(var i = 0; i< 26; i ++){
       playerHand.push(deck[i]);
@@ -127,21 +119,23 @@ var cardSymbol = function() {
   $('#card2').html(playerCard.rank + "" + playerCard.symbol);
 };
 var war = function(){
-  alert("Are you ready to go to war?");
-  $('#warCards').append('<div class="card3" id="card3"></div>');
-  $('#warCards').append('<div class="card4" id="card4"></div>');
-  $('#warCards2').append('<div class="card5" id="card5"></div>');
-  $('#warCards2').append('<div class="card6" id="card6"></div>');
-  $('#card3').html(playerHand[0].rank + "" + playerHand[0].symbol);
-  $('#card6').html(playerHand[1].rank + "" + playerHand[1].symbol);
-  $('#card4').html(computerHand[0].rank + "" + computerHand[0].symbol);
-  $('#card5').html(computerHand[1].rank + "" + computerHand[1].symbol);
+  if (playerHand.length > 2) {
+    alert("Are you ready to go to war?");
+    $('#warCards').append('<div class="card3" id="card3"></div>');
+    $('#warCards').append('<div class="card4" id="card4"></div>');
+    $('#warCards2').append('<div class="card5" id="card5"></div>');
+    $('#warCards2').append('<div class="card6" id="card6"></div>');
+    $('#card3').html(playerHand[0].rank + "" + playerHand[0].symbol);
+    $('#card6').html(playerHand[1].rank + "" + playerHand[1].symbol);
+    $('#card4').html(computerHand[0].rank + "" + computerHand[0].symbol);
+    $('#card5').html(computerHand[1].rank + "" + computerHand[1].symbol);
+  }
 };
 var playerScore = 0;
 var computerScore = 0;
 
 
-
+//The big kahuna, draws cards and compares values
 var draw = function() {
   $('#card3').remove();
   $('#card4').remove();
@@ -182,7 +176,6 @@ var draw = function() {
         computerWinsRound();
         computerScore = computerScore + 6;
         $('#computerScore').html("Computer: " + computerScore)
-
         console.log("Computer wins war");
       } else if (playerHand[0].value > computerHand[0].value && computerHand[1].value) {
         playerWinsRound();
@@ -215,12 +208,12 @@ var draw = function() {
         $('.draw').remove();
         $('#computerWinsRound').remove();
         $('#playerWinsRound').remove()
-        $('.war-header').append('<h3>Congratulations! You are a true warrior!</h3>');
+        $('.war-header').append('<h3>Congratulations! You just won a game that requires zero strategy!</h3>');
       }else if (playerScore < computerScore) {
         $('.draw').remove();
         $('#computerWinsRound').remove();
         $('#playerWinsRound').remove()
-        $('.war-header').append('<h3>You have suffered a mighty defeat!</h3>');
+        $('.war-header').append('<h3>Wow! You are one pathetic loser!</h3>');
       }
     }
 };
