@@ -1,5 +1,5 @@
 
-$('#play').on('click', function(){
+var playFunction = function(){
   $('#rules').remove();
   $('#play').remove();
   $('.war').remove();
@@ -9,24 +9,24 @@ $('#play').on('click', function(){
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer: 0");
   $('#playerScore').html("Player: 0" );
-});
+};
 
-$('#goBack').on('click', function() {
-  console.log('hello')
+var goBack = function() {
+  console.log('hello');
   $('#pTag').remove();
-  $('#clickers').append('<h1 class="rules" id="rules" >Rules</h1><h1 class="play" id="play" >Play</h1>')
+  $('#clickers').append('<h1 class="rules" id="rules" >Rules</h1><h1 class="play" id="play" onclick="playFunction()">Play</h1>');
 
   //window.history.back();
-});
+};
 
 $('#rules').on('click', function(){
   $('#rules').remove();
   $('#play').remove();
   $('#rulesDiv').append('<p>');
   //$('#war-header').append('<p>');
-  $('p').attr('id', 'pTag');
+  $('#rulesDiv > p').attr('id', 'pTag');
   $('#pTag').text('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their value. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. Click draw again and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
-  $('#pTag').append('<div class="goBack" id="goBack" onclick="goBack()">Back</div>')
+  $('#pTag').append('<div class="goBack" id="goBack" onclick="goBack()">Back</div>');
 });
 
 
