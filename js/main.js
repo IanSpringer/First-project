@@ -4,7 +4,7 @@ var playFunction = function(){
   $('#play').remove();
   $('.war').remove();
   $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
-  $('#reset').append('<div class="resetButton" onclick="reset()">Reset</div>');
+  $('body').append('<div class="resetButton" onclick="reset()">Reset</div>');
   $('#header2').append('<div class="card1" id="card1"></div>');
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer: 0");
@@ -12,7 +12,11 @@ var playFunction = function(){
 };
 
 var goBack = function() {
-  window.history.back();
+  console.log('hello')
+  $('#pTag').remove();
+  $('#clickers').append('<h1 class="rules" id="rules" onclick="rulesFunction()">Rules</h1><h1 class="play" id="play" onclick="playFunction()">Play</h1>')
+
+  //window.history.back();
 }
 
 var rulesFunction = function(){
@@ -69,7 +73,7 @@ var makeDeck = function() {
   }
 
 };
-
+var war = false;
 
 makeDeck();
 
@@ -123,13 +127,21 @@ var cardSymbol = function() {
   $('#card2').html(playerCard.rank + "" + playerCard.symbol);
 }
 var war = function(){
+  alert("Are you ready to go to war?");
   $('#warCards').append('<div class="card3" id="card3"></div>');
   $('#warCards').append('<div class="card4" id="card4"></div>');
   $('#warCards2').append('<div class="card5" id="card5"></div>');
   $('#warCards2').append('<div class="card6" id="card6"></div>');
-}
+  $('#card3').html(playerHand[0].rank + "" + playerHand[0].symbol);
+  $('#card6').html(playerHand[1].rank + "" + playerHand[1].symbol);
+  $('#card4').html(computerHand[0].rank + "" + computerHand[0].symbol);
+  $('#card5').html(computerHand[1].rank + "" + computerHand[1].symbol);
+};
 var playerScore = 0;
 var computerScore = 0
+
+
+
 var draw = function() {
   playerCard = playerHand[0];
   computerCard = computerHand[0];
@@ -155,10 +167,35 @@ var draw = function() {
     computerWinsRound();
     computerScore = computerScore + 2;
     $('#computerScore').html("Computer: " + computerScore)
-  //} else if (computerCard.value === playerCard.value) {
-    //$('#computerWinsRound').remove();
-    //$('#playerWinsRound').remove();
-    //war();
+  } else if (computerCard.value === playerCard.value) {
+    war();
+    war = true;
+      if(computerHand[0].value > playerHand[0].value && playerHand[1].value){
+        computerWinsRound();
+        computerScore = computerScore + 6;
+        $('#computerScore').html("Computer: " + computerScore)
+        console.log("Computer wins war");
+      } else if (computerHand[1].value > playerHand[0].value && playerHand[1].value){
+        computerWinsRound();
+        computerScore = computerScore + 6;
+        $('#computerScore').html("Computer: " + computerScore)
+
+        console.log("Computer wins war");
+      } else if (playerHand[0].value > computerHand[0].value && computerHand[1].value) {
+        playerWinsRound();
+        playerScore = playerScore + 6;
+        $('#playerScore').html("Player: " + playerScore);
+        console.log("Player wins war");
+      } else if (playerHand[1].value > computerHand[0].value && computerHand[1].value){
+        playerWinsRound();
+        playerScore = playerScore + 6;
+        $('#playerScore').html("Player: " + playerScore);
+        console.log ("Player wins war");
+      }
+    $('#computerWinsRound').remove();
+    $('#playerWinsRound').remove();
+    //warButton();
+
 }
   }
 
