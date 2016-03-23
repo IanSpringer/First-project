@@ -98,7 +98,7 @@ var dealPlayer = function(){
   };
 
 var dealComputer = function(){
-  for (var i = 27; i < 52; i++) {
+  for (var i = 26; i < 52; i++) {
     computerHand.push(deck[i]);
   }
 };
@@ -125,7 +125,7 @@ var computerWinsRound = function() {
 var cardSymbol = function() {
   $('#card1').html(computerCard.rank + "" + computerCard.symbol);
   $('#card2').html(playerCard.rank + "" + playerCard.symbol);
-}
+};
 var war = function(){
   alert("Are you ready to go to war?");
   $('#warCards').append('<div class="card3" id="card3"></div>');
@@ -138,11 +138,15 @@ var war = function(){
   $('#card5').html(computerHand[1].rank + "" + computerHand[1].symbol);
 };
 var playerScore = 0;
-var computerScore = 0
+var computerScore = 0;
 
 
 
 var draw = function() {
+  $('#card3').remove();
+  $('#card4').remove();
+  $('#card5').remove();
+  $('#card6').remove();
   playerCard = playerHand[0];
   computerCard = computerHand[0];
   playerHand.shift();
@@ -166,14 +170,13 @@ var draw = function() {
     $('#playerWinsRound').remove();
     computerWinsRound();
     computerScore = computerScore + 2;
-    $('#computerScore').html("Computer: " + computerScore)
+    $('#computerScore').html("Computer: " + computerScore);
   } else if (computerCard.value === playerCard.value) {
-    war();
-    war = true;
+      war();
       if(computerHand[0].value > playerHand[0].value && playerHand[1].value){
         computerWinsRound();
         computerScore = computerScore + 6;
-        $('#computerScore').html("Computer: " + computerScore)
+        $('#computerScore').html("Computer: " + computerScore);
         console.log("Computer wins war");
       } else if (computerHand[1].value > playerHand[0].value && playerHand[1].value){
         computerWinsRound();
@@ -192,31 +195,42 @@ var draw = function() {
         $('#playerScore').html("Player: " + playerScore);
         console.log ("Player wins war");
       }
+      playerHand.shift();
+      computerHand.shift();
+      playerHand.shift();
+      computerHand.shift();
+
+
     $('#computerWinsRound').remove();
     $('#playerWinsRound').remove();
-    //warButton();
-
 }
-  }
+    checkWinner();
+};
+
 
   var checkWinner = function() {
     if(playerHand.length === 0) {
+
       if (playerScore > computerScore) {
-        alert("You are a true warrior!");
-      } else if (playerScore < computerScore) {
-        alert("You have been defeated!");
+        $('.draw').remove();
+        $('#computerWinsRound').remove();
+        $('#playerWinsRound').remove()
+        $('.war-header').append('<h3>Congratulations! You are a true warrior!</h3>');
+      }else if (playerScore < computerScore) {
+        $('.draw').remove();
+        $('#computerWinsRound').remove();
+        $('#playerWinsRound').remove()
+        $('.war-header').append('<h3>You have suffered a mighty defeat!</h3>');
       }
     }
 };
- playerScore;
- computerScore;
 
 
  // playerHand;
   //computerHand;
 
 
-checkWinner();
+
 
 
 

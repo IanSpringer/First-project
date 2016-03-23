@@ -2,6 +2,12 @@ body {
   background-image: url("https://wallpaperscraft.com/image/paper_background_crumpled_shadow_50427_1600x900.jpg");
 }
 
+h3 {
+  text-align: center;
+  font-family: Papyrus, fantasy;
+  color: red;
+  font-size: 36px;
+}
 
 .war-header {
   width: 800px;
