@@ -5,7 +5,6 @@ var playFunction = function(){
   $('#play').remove();
   $('.war').remove();
   $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
-  //$('body').append('<div class="resetButton" onclick="reset()">Reset</div>');
   $('#header2').append('<div class="card1" id="card1"></div>');
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer: 0");
@@ -52,10 +51,6 @@ var deck = [];
 var makeDeck = function() {
   for (var i = 0; i < cardDeck.rank.length; i++){
     for (var j = 0; j < cardDeck.suit.length; j++){
-      // var cardString = (cardDeck.rank[i] + ' of ' + cardDeck.suit[j])
-      // var card = new Card(cardDeck.suit[0], cardDeck.rank[0], cardDeck.value[0]);
-      // var card = new Card('Heart', '2', 2);
-      // var card = {suit: 'Heart', rank: '2', value: 2};
       var card = new Card(cardDeck.suit[j], cardDeck.rank[i], cardDeck.value[i], cardDeck.symbol[j]);
       deck.push(card);
     }
@@ -128,23 +123,13 @@ var war = function(){
     $makeInline.append('<div class="card5" id="card5"></div>');
     $makeInline.append('<div class="card6" id="card6"></div>');
     $('#header2').append($makeInline);
-
-
-    // $('#header2').append('<div class="card3" id="card3"></div>');
-    // $('#header2').append('<div class="card4" id="card4"></div>');
-    // $('#header2').append('<div class="card5" id="card5"></div>');
-    // $('#header2').append('<div class="card6" id="card6"></div>');
-
-    //$('#warCards').append('<div class="card3" id="card3"></div>');
-    //$('#warCards').append('<div class="card4" id="card4"></div>');
-    //$('#warCards2').append('<div class="card5" id="card5"></div>');
-    //$('#warCards2').append('<div class="card6" id="card6"></div>');
     $('#card3').html(playerHand[0].rank + "" + playerHand[0].symbol);
     $('#card6').html(playerHand[1].rank + "" + playerHand[1].symbol);
     $('#card4').html(computerHand[0].rank + "" + computerHand[0].symbol);
     $('#card5').html(computerHand[1].rank + "" + computerHand[1].symbol);
   }
 };
+
 var playerScore = 0;
 var computerScore = 0;
 
@@ -233,8 +218,7 @@ var draw = function() {
 };
 
 
- // playerHand;
-  //computerHand;
+
 
 
 

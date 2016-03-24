@@ -73,6 +73,7 @@ h3 {
   border-radius: 25px;
   display: inline-block;
   cursor: pointer;
+  font-family: Papyrus, fantasy;
 }
 
 .rules:hover {
@@ -91,6 +92,8 @@ h3 {
   border-radius: 25px;
   display: inline-block;
   cursor: pointer;
+  font-family: Papyrus, fantasy;
+
 }
 
 .play:hover {
