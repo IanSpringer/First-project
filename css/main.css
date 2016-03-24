@@ -15,7 +15,7 @@ h3 {
 
 }
 
-.playerWinsRound {
+/*.playerWinsRound {
   color: white;
   text-align: center;
   font-family: Papyrus, fantasy;
@@ -28,7 +28,14 @@ h3 {
   font-family: Papyrus, fantasy;
   margin-top: 10px;
 
+}*/
+#winner {
+  color: white;
+  text-align: center;
+  font-family: Papyrus, fantasy;
+  margin-top: 10px;
 }
+
 
 .war {
   text-align: center;
