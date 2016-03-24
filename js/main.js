@@ -23,7 +23,6 @@ $('#rules').on('click', function(){
   $('#rules').remove();
   $('#play').remove();
   $('#rulesDiv').append('<p>');
-  //$('#war-header').append('<p>');
   $('#rulesDiv > p').attr('id', 'pTag');
   $('#pTag').text('War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their values. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), war will be initiated. When the prompt asks you if you are ready to go to war, click OK and two more cards will be take from your hand, as well as the computer hand. The player with highest valued card of the six laid out will collect all six cards. Once both hands have been played, the player who collected the most amount of cards wins!');
   $('#pTag').append('<div class="goBack" id="goBack" onclick="goBack()">Back</div>');
@@ -120,7 +119,7 @@ var cardSymbol = function() {
 };
 var war = function(){
   if (playerHand.length > 2) {
-    alert("Are you ready to go to war?");
+    prompt("Time to go to war. How many points would you like to wager?");
 
 
     var $makeInline = $('<ul id="make-inline"></ul>');
