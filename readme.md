@@ -1,12 +1,5 @@
-War
+War is a classic 2-player card game. When you click "Play" you and the computer will be dealt a hand of 26 cards, half of a standard deck. Once you have your hand, click "Draw" and the first card of your hand and the computer hand will be revealed. The two cards will be compared based on their values. A 2 card has the lowest value and an Ace card has the highest. Whoever possesses the higher valued card wins that round and collects the two cards to be kept in a separate pile. 
 
-War is a classic card game that pits two players against one another. The idea is simple, but the stakes are high.
+Should two cards with equal value be drawn (ex. King of Hearts and King of Spades), "war" will be initiated. When this happens, you will have the option of wagering points up to 5. The player with highest valued card of the 4 new cards will collect all six cards. If you win the "war", your point total will increase by 6 points plus the amount that you have wagered. But should you lose, your point total will decrease by the amount wagered. Once both hands have been played, the player who collected the most amount of cards wins!
 
-Each player is dealt 26 cards  from a standard 52 card deck. The players then begin drawing cards one at a time, at the same time.
-Who ever has the higher card value wins that hand. Each winning hand is assigned 1 point to the players total points. the rank of cards
-from weakest to strongest is 2, 3, 4, 5, 6, 7, 8, 9, jack, queen, king, ace.
-
-Should the two cards of a draw be equal in rank, "war" has begun. In this case, two additional cards will be dealt each player, and the player with the highest ranking card of all
-6 cards will win the battle, and awarded 10 points. The player with the most points when all 52 cards have been played wins.
-
-The best of 5 games will be awarded the war champion.
+Play "War" here: IanSpringer.github.io/First-project
