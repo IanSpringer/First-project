@@ -43,7 +43,7 @@ var Card = function(suit, rank, value, symbol) {
 // card ingredients
 var cardDeck = {
   suit: ['Hearts', 'Spades', 'Diamonds', 'Clubs'],
-  rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'],
+  rank: ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'],
   value: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
   symbol: ['♥', '♠', '♦', '♣']
 };
@@ -121,10 +121,15 @@ var cardSymbol = function() {
 var war = function(){
   if (playerHand.length > 2) {
     alert("Are you ready to go to war?");
-    $('#warCards').append('<div class="card3" id="card3"></div>');
-    $('#warCards').append('<div class="card4" id="card4"></div>');
-    $('#warCards2').append('<div class="card5" id="card5"></div>');
-    $('#warCards2').append('<div class="card6" id="card6"></div>');
+    $('#header2').append('<div class="card3" id="card3"></div>');
+    $('#header2').append('<div class="card4" id="card4"></div>');
+    $('#header2').append('<div class="card5" id="card5"></div>');
+    $('#header2').append('<div class="card6" id="card6"></div>');
+
+    //$('#warCards').append('<div class="card3" id="card3"></div>');
+    //$('#warCards').append('<div class="card4" id="card4"></div>');
+    //$('#warCards2').append('<div class="card5" id="card5"></div>');
+    //$('#warCards2').append('<div class="card6" id="card6"></div>');
     $('#card3').html(playerHand[0].rank + "" + playerHand[0].symbol);
     $('#card6').html(playerHand[1].rank + "" + playerHand[1].symbol);
     $('#card4').html(computerHand[0].rank + "" + computerHand[0].symbol);
