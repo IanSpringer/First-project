@@ -247,11 +247,11 @@ h3 {
   text-align: center;
   background: black;
   border: 1px solid white;
-  margin-right: 34.5%;
   margin-top: 5px;
   border-radius: 15px;
-  float: right;
   display: inline-block;
+  float: right;
+  margin-right: 80px;
 
 
 }
@@ -264,10 +264,9 @@ h3 {
   background: black;
   border: 1px solid white;
   border-radius: 15px;
-  float: left;
-  margin-left: 33%;
   margin-top: 5px;
   display: inline-block;
+  margin-left: 20px;
 }
 
 .card5 {
@@ -279,10 +278,10 @@ h3 {
   background: black;
   border: 1px solid white;
   border-radius: 15px;
-  float: left;
-  margin-left: 33%;
   margin-top: 5px;
   display: inline-block;
+  float: right;
+  margin-right: 20px;
 
 }
 .card6 {
@@ -295,9 +294,15 @@ h3 {
   border: 1px solid white;
   margin-top: 5px;
   border-radius: 15px;
-  float:right;
-  margin-right: 34.5%;
+  display: inline-block;
+  margin-left: 20px;
 
+
+}
+
+
+#make-inline {
+  display: inline;
 }
 
 

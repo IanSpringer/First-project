@@ -5,7 +5,7 @@ var playFunction = function(){
   $('#play').remove();
   $('.war').remove();
   $('.war-header').append('<div class="draw" onclick="draw()">Draw</div>');
-  $('body').append('<div class="resetButton" onclick="reset()">Reset</div>');
+  //$('body').append('<div class="resetButton" onclick="reset()">Reset</div>');
   $('#header2').append('<div class="card1" id="card1"></div>');
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer: 0");
@@ -121,10 +121,20 @@ var cardSymbol = function() {
 var war = function(){
   if (playerHand.length > 2) {
     alert("Are you ready to go to war?");
-    $('#header2').append('<div class="card3" id="card3"></div>');
-    $('#header2').append('<div class="card4" id="card4"></div>');
-    $('#header2').append('<div class="card5" id="card5"></div>');
-    $('#header2').append('<div class="card6" id="card6"></div>');
+
+
+    var $makeInline = $('<ul id="make-inline"></ul>');
+    $makeInline.append('<div class="card3" id="card3"></div>');
+    $makeInline.append('<div class="card4" id="card4"></div>');
+    $makeInline.append('<div class="card5" id="card5"></div>');
+    $makeInline.append('<div class="card6" id="card6"></div>');
+    $('#header2').append($makeInline);
+
+
+    // $('#header2').append('<div class="card3" id="card3"></div>');
+    // $('#header2').append('<div class="card4" id="card4"></div>');
+    // $('#header2').append('<div class="card5" id="card5"></div>');
+    // $('#header2').append('<div class="card6" id="card6"></div>');
 
     //$('#warCards').append('<div class="card3" id="card3"></div>');
     //$('#warCards').append('<div class="card4" id="card4"></div>');
