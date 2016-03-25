@@ -8,7 +8,7 @@ var playFunction = function(){
   $('#header2').append('<div class="card1" id="card1"></div>');
   $('#header2').append('<div class="card2" id="card2"></div>');
   $('#computerScore').html("Computer: 0");
-  $('#playerScore').html("Player: 0" );
+  $('#playerScore').html("Player: 0");
 };
 
 //Go back button inside of rules
