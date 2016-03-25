@@ -103,7 +103,7 @@ var showWinner = function(winner) {
 
 var clearWinner = function(){
   $('#winner').html('');
-}
+};
 
 var cardSymbol = function() {
   $('#card1').html(computerCard.rank + "" + computerCard.symbol);
@@ -114,7 +114,7 @@ var getWager = function() {
   amount = parseInt(amount);
   amount = (amount > 5) ? 5 : amount;
   return amount;
-}
+};
 
 var war = function(){
   if (playerHand.length > 2) {
@@ -218,10 +218,7 @@ var draw = function() {
     }
 };
 
-
-
-
-
+// I'm in...
 
 
 
